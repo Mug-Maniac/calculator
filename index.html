@@ -3,7 +3,59 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Calculator</title>
+    <meta
+      name="description"
+      content="A simple calculator built with HTML, CSS, and JavaScript"
+    />
+    <title>Calculator App</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Spline+Sans+Mono:ital,wght@0,300..700;1,300..700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
   </head>
-  <body></body>
+
+  <body>
+    <div class="wrapper">
+      <div class="display">0</div>
+
+      <div class="button-grid">
+        <button class="buttons button-clear" id="clear">C</button>
+        <button class="buttons button-delete" id="delete">&larr;</button>
+        <button class="buttons button-operator" data-operator="%">
+          &percnt;
+        </button>
+        <button class="buttons button-operator" data-operator="/">
+          &divide;
+        </button>
+        <button class="buttons button-num" data-num="7">7</button>
+        <button class="buttons button-num" data-num="8">8</button>
+        <button class="buttons button-num" data-num="9">9</button>
+        <button class="buttons button-operator" data-operator="*">
+          &times;
+        </button>
+        <button class="buttons button-num" data-num="4">4</button>
+        <button class="buttons button-num" data-num="5">5</button>
+        <button class="buttons button-num" data-num="6">6</button>
+        <button class="buttons button-operator" data-operator="-">
+          &minus;
+        </button>
+        <button class="buttons button-num" data-num="1">1</button>
+        <button class="buttons button-num" data-num="2">2</button>
+        <button class="buttons button-num" data-num="3">3</button>
+        <button class="buttons button-operator" data-operator="+">
+          &plus;
+        </button>
+        <button class="buttons button-num" id="button-zero" data-num="0">
+          0
+        </button>
+        <button class="buttons button-num" data-num=".">.</button>
+        <button class="buttons button-equals" id="equals">&equals;</button>
+      </div>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
 </html>
