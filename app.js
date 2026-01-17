@@ -36,39 +36,40 @@ numberButtons.forEach((button) => {
 
 operatorButtons.forEach((button) => {
     button.addEventListener('click', () => {
-        if (previousOperator !== null)
-        {
-            resetEverything()
-        }
 
         switch (button.dataset.operator) {
             case "+":
-                runningTotal += parseInt(buffer)
+                runningTotal += parseFloat(buffer)
                 previousOperator = "+"
+                buffer = "0"
                 resetDisplay()
                 break;
         
             case "-":
-                runningTotal += parseInt(buffer)
+                runningTotal += parseFloat(buffer)
                 previousOperator = "-"
+                buffer = "0"
                 resetDisplay()
                 break;
 
             case "*":
-                runningTotal += parseInt(buffer)
+                runningTotal += parseFloat(buffer)
                 previousOperator = "*"
+                buffer = "0"
                 resetDisplay()
                 break;
 
             case "/":
-                runningTotal += parseInt(buffer)
+                runningTotal += parseFloat(buffer)
                 previousOperator = "/"
+                buffer = "0"
                 resetDisplay()
                 break;
 
-            // case "%":
-            //     console.log(button.dataset.operator)
-            //     break;
+            case "%":
+                buffer = (parseFloat(buffer)/100).toString()
+                display.textContent = buffer
+                break;
         }
     })
 });
@@ -79,7 +80,12 @@ clearBtn.addEventListener("click", () => {
 })
 
 deleteBtn.addEventListener("click", () => {
-
+    if (buffer.length === 1) {
+        buffer = 0
+    } else {
+        buffer = buffer.slice(0, -1)
+    }
+    display.textContent = buffer
 })
 
 equalsBtn.addEventListener("click", () => {
@@ -87,24 +93,26 @@ equalsBtn.addEventListener("click", () => {
 
     switch (previousOperator) {
         case "+":
-            total = runningTotal + parseInt(buffer)
+            total = runningTotal + parseFloat(buffer)
             break;
     
         case "-":
-            total = runningTotal - parseInt(buffer)
+            total = runningTotal - parseFloat(buffer)
             break;
 
         case "*":
-            total = runningTotal * parseInt(buffer)
+            total = runningTotal * parseFloat(buffer)
             break;
 
         case "/":
-            total = runningTotal / parseInt(buffer)
+            total = runningTotal / parseFloat(buffer)
             break;
     }
 
     display.textContent = total
-    resetEverything()
+    buffer = total.toString()
+    runningTotal = 0
+    previousOperator = null
 })
 
 //helper methods
